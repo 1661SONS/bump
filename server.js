@@ -9,9 +9,12 @@ var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
 
-// models
+// models n such
 var Article = require("./models/Article.js");
 var Comment = require("./models/Comment.js");
+
+var methodOverride = require("method-override");
+
 // var db = require("./models");
 var db = mongoose.connection;
 
@@ -30,6 +33,8 @@ app.use(express.static("public"));
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+
+app.use(methodOverride("_method"));
 
 var bumpRouter = require("./controllers/bump-routes.js");
 var htmlRouter = require("./controllers/html-routes.js");

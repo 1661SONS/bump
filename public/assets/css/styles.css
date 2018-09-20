@@ -4,3 +4,35 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Inconsolata', monospace;
 }
+/* .uk-container {
+    background-color: #0f0b27;
+} */
+/* home *************************************************************************************/
+#bumpsNav {
+    background-color: #D13EBE;
+}
+.uk-navbar-nav > li > a {
+    text-transform: lowercase;
+    color: black;
+    font-family: 'Inconsolata', monospace;
+    font-weight: 700;
+    font-size: 18px;
+}
+.uk-navbar-nav > li > a:hover {
+    color: #359CFC;
+}
+#bumpsNav > div.uk-navbar-left > ul > li.uk-active > a {
+    color: white;
+}
+.uk-heading-line {
+    padding-top: 60px;
+}
+/* saved **********************************************************************************/
+#savedNav {
+    background-color: #A9FFFE;
+}
+#savedNav > div.uk-navbar-left > ul > li.uk-active > a {
+    color: #D13EBE;
+}
+
+

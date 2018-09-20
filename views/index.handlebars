@@ -1,1 +1,48 @@
-<h1>putting some random shit here to test some shit - this is the index.handlebars page</h1>
+<title>[bumps] - home</title>
+{{!-- header nav --}}
+<nav id="bumpsNav" class="uk-navbar-container" uk-navbar>
+    <div class="uk-navbar-left">
+        <ul class="uk-navbar-nav">
+            <li class="uk-active"><a href="/">[bumps]</a></li>
+            <li><a href="/saved"><span uk-icon="bookmark"></span>&nbsp;saved articles</a></li>
+        </ul>
+    </div>
+    <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+            <li><a href="/scrape"><span uk-icon="pull"></span>&nbsp;get new articles</a></li>
+        </ul>
+    </div>
+</nav>
+{{!-- hero --}}
+<div class="uk-background-blend-difference uk-background-primary uk-background-top uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle" style="background-image: url(assets/images/atom-bomb.jpg);">
+</div>
+{{!-- begin articles --}}
+<div class="uk-container">
+    <h1 class="uk-heading-line"><span>articles</span></h1>
+
+<div>
+    <div class="uk-dark uk-padding">
+        <h3>this here is a damn headline</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <button class="uk-button uk-button-default"><span uk-icon="bookmark"></span>&nbsp;save article</button>
+    </div>
+</div>
+<div>
+    <div class="uk-dark uk-padding">
+        <h3>this here is another damn headline, son</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <form method="POST" action="/saved/{{this.id}}?_method=PUT">
+            <button type="submit" class="uk-button uk-button-default" id="articleButton"><span uk-icon="bookmark"></span>&nbsp;save article</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+</div> {{!-- close container --}}
