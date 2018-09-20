@@ -48,7 +48,7 @@ app.use("/", bumpRouter);
 mongoose.Promise = Promise;
 // mongoose.connect(MONGODB_URI);
 
-mongoose.connect("mongodb://localhost/bumps", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/bumpdb", { useNewUrlParser: true });
 
 db.on("error", function(error) {
     console.log("mongoose error: ", error)

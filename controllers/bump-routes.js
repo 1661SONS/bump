@@ -19,12 +19,11 @@ router.get("/scrape", function(req, res) {
 
       // saving the result to an empty object
       var result = {};
-
+    
       // selecting the title and description of every article, and saving in result object
-      // if div.quick-post-card-degraded__content doesnt work, try div.quick-post-card-degraded__title
-      result.title = $(element).children("div.quick-post-card-degraded__content").children("h3.text").html();
+      result.title = $(element).find("h3>.text").text();
       
-      result.link = $(element).children("a.card-stack__element__link").text();
+      result.link = $(element).find("a").attr("href");
       
       // creating new db entry
       var entry = new Article(result);
