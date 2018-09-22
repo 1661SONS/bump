@@ -42,11 +42,8 @@ var htmlRouter = require("./controllers/html-routes.js");
 app.use("/", htmlRouter);
 app.use("/", bumpRouter);
 
-// Connect to the Mongo DB
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/bumps";
-
+// connect to the mongo db, "bumpdb"
 mongoose.Promise = Promise;
-// mongoose.connect(MONGODB_URI);
 
 mongoose.connect("mongodb://localhost/bumpdb", { useNewUrlParser: true });
 
@@ -56,11 +53,6 @@ db.on("error", function(error) {
 db.once("open", function() {
     console.log("mongoose connection successful");
 });
-
-
-
-
-
 
 // start server
 app.listen(PORT, function() {

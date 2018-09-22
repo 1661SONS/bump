@@ -24,7 +24,7 @@ router.get("/scrape", function(req, res) {
       result.title = $(element).find("h3>.text").text();
       
       result.link = $(element).find("a").attr("href");
-      
+
       // creating new db entry
       var entry = new Article(result);
 
