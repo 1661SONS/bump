@@ -12,10 +12,19 @@ $(document).ready(function() {
 
         for (var i = 0; i < data.length; i++) {
 
-            $("#scrape-results").prepend("<div class='result-div'><p class='result-text'>" + data[i].title + "<br>" + "https://theoutline.com" + 
-            data[i].link +
-            "</p><button class='save-article button is-info is-medium' data-id='" + data[i]._id + 
-            "'><span class='icon'><i class='fa fa-bookmark'></i></span>Save Article</button></div>");
+            var link = "https://theoutline.com" + data[i].link;
+
+            $("#scrape-results").append(`<div class="uk-dark uk-padding">
+
+            <h3>`+data[i].title+`</h3>
+            
+            <button data-id='` + data[i]._id + 
+            `' type="submit" class="save-article uk-button uk-button-default"><span uk-icon="bookmark"></span>&nbsp;save article</button>
+
+            <a target="_blank" href=`+link+`>read on outline</a>
+            
+            </div>`);
+
         }
 	});
 
