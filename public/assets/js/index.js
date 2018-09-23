@@ -1,11 +1,4 @@
 $(document).ready(function() {
-	
-	// hamburger menu
-	$(".navbar-burger").on("click", function() {
-		$(".navbar-burger").toggleClass("is-active");
-		$(".dropdown").toggle();
-		$(".dropdown").toggleClass("is-open");
-	});
 
 	// grab articles as json when page loads, then append to page
 	$.getJSON("/articles", function(data) {
@@ -14,16 +7,23 @@ $(document).ready(function() {
 
             var link = "https://theoutline.com" + data[i].link;
 
-            $("#scrape-results").append(`<div id="articleDiv" class="uk-dark uk-padding">
+            $("#scrape-results").append(`<div id="articleCard" class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
 
-            <h3>`+data[i].title+`</h3>
-            
-            <button data-id='` + data[i]._id + 
-            `' type="submit" class="save-article uk-button uk-button-default"><span uk-icon="bookmark"></span>&nbsp;save article</button>&nbsp;&nbsp;
+                <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
+                    <img src="`+data[i].image+`" alt="article image" uk-cover>
+                    <canvas width="300" height="200"></canvas>
+                </div>
 
-            <a target="_blank" href=`+link+`><button class="read-article uk-button uk-button-default">read article&nbsp;<span uk-icon="arrow-right"></span></button></a>
-            
-            </div><br>`);
+                <div>
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title">`+data[i].title+`</h3>
+                        <button data-id='` + data[i]._id + 
+                    `' type="submit" class="save-article uk-button uk-button-default"><span uk-icon="bookmark"></span>&nbsp;save article</button>&nbsp;&nbsp;
+
+                    <a target="_blank" href=`+link+`><button class="read-article uk-button uk-button-default">read article&nbsp;<span uk-icon="arrow-right"></span></button></a>
+                    </div>
+                </div>
+            </div>`);
 
         }
 	});

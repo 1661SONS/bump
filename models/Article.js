@@ -15,7 +15,13 @@ var ArticleSchema = new Schema({
   link: {
     type: String,
     required: true
-  },// boolean to flag articles as saved
+  },
+  // `image` is the associated with the article
+  image: {
+    type: String,
+    required: false
+  },
+  // boolean to flag articles as saved
   saved: {
     type: Boolean,
     required: true,

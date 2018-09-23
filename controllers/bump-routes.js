@@ -25,6 +25,8 @@ router.get("/scrape", function(req, res) {
       
       result.link = $(element).find("a").attr("href");
 
+      result.image = $(element).find(".card__bg__image>img").attr("src");
+
       // creating new db entry
       var entry = new Article(result);
 

@@ -33,8 +33,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #FABF40;
     font-weight: 700;
 }
-#articleDiv {
-    background-color: white;
+#articleCard {
     border: solid 1px #FABF40;
     border-radius: 10px;
 }
@@ -67,8 +66,8 @@ button.read-article {
 }
 
 /* media queries ******************************************************************************/
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 930px) {
     button.save-article {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
     }
 }

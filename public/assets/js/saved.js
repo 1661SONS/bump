@@ -1,11 +1,4 @@
 $(document).ready(function() {
-	
-	// hamburger menu
-	$(".navbar-burger").on("click", function() {
-		$(".navbar-burger").toggleClass("is-active");
-		$(".dropdown").toggle();
-		$(".dropdown").toggleClass("is-open");
-	});
 
 	// render saved articles on page load
 	$.getJSON("/articles", function(data) {

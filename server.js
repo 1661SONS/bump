@@ -52,12 +52,12 @@ db.on("error", function(error) {
     console.log("mongoose error: ", error)
 });
 db.once("open", function() {
-    console.log("-------------------------------".magenta);
     console.log("MONGOOSE CONNECTION SUCCESSFUL".green);
     console.log("-------------------------------".magenta);
 });
 
 // start server
 app.listen(PORT, function() {
-  console.log("App running on port " + PORT + "!");
+    console.log("\n-------------------------------".magenta);
+    console.log("APP RUNNING ON PORT ".green + PORT + "!".green);
 });
