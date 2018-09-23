@@ -1,5 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Inconsolata', monospace;
@@ -9,24 +10,50 @@ h1, h2, h3, h4, h5, h6 {
 } */
 /* home *************************************************************************************/
 #bumpsNav {
-    background-color: #D13EBE;
+    background-color: #121225;
 }
 .uk-navbar-nav > li > a {
     text-transform: lowercase;
-    color: black;
+    color: #FABF40;
     font-family: 'Inconsolata', monospace;
     font-weight: 700;
     font-size: 18px;
 }
 .uk-navbar-nav > li > a:hover {
-    color: #359CFC;
+    color: #C3C4DF;
+    /* text-decoration: underline; */
 }
 #bumpsNav > div.uk-navbar-left > ul > li.uk-active > a {
-    color: white;
+    color: #C3C4DF;
 }
 .uk-heading-line {
     padding-top: 60px;
 }
+#articlesHeading {
+    color: #FABF40;
+    font-weight: 700;
+}
+#articleDiv {
+    background-color: white;
+    border: solid 1px #FABF40;
+    border-radius: 10px;
+}
+button.save-article, button.read-article {
+    border-radius: 5px;
+}
+button.save-article:hover, button.read-article:hover {
+    border-color: #121225;
+    background-color: #FABF40;
+}
+button.save-article {
+    border-color: #FABF40;
+    color: #121225;
+}
+button.read-article {
+    background-color: #f9f9f9;
+    border-color: #e5e5e5;
+}
+
 /* saved **********************************************************************************/
 #savedNav {
     background-color: #A9FFFE;
@@ -34,5 +61,14 @@ h1, h2, h3, h4, h5, h6 {
 #savedNav > div.uk-navbar-left > ul > li.uk-active > a {
     color: #D13EBE;
 }
+#savedArticlesHeading {
+    color: black;
+    font-weight: 700;
+}
 
-
+/* media queries ******************************************************************************/
+@media only screen and (max-width: 500px) {
+    button.save-article {
+        margin-bottom: 10px;
+    }
+}

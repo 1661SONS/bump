@@ -1,4 +1,5 @@
 // dependencies
+var colors = require("colors");
 var express = require("express");
 var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
@@ -51,7 +52,9 @@ db.on("error", function(error) {
     console.log("mongoose error: ", error)
 });
 db.once("open", function() {
-    console.log("mongoose connection successful");
+    console.log("-------------------------------".magenta);
+    console.log("MONGOOSE CONNECTION SUCCESSFUL".green);
+    console.log("-------------------------------".magenta);
 });
 
 // start server

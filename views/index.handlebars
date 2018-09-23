@@ -1,32 +1,31 @@
 <title>[bumps] - home</title>
 {{!-- header nav --}}
-<nav id="bumpsNav" class="uk-navbar-container" uk-navbar>
-    <div class="uk-navbar-left">
-        <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="/">[bumps]</a></li>
-            <li><a href="/saved"><span uk-icon="bookmark"></span>&nbsp;saved articles</a></li>
-        </ul>
-    </div>
-    <div class="uk-navbar-right">
-        <ul class="uk-navbar-nav">
-            <li><a href="/scrape"><span uk-icon="pull"></span>&nbsp;get new articles</a></li>
-        </ul>
-    </div>
-</nav>
-{{!-- hero --}}
-<div class="uk-background-blend-difference uk-background-primary uk-background-top uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle" style="background-image: url(assets/images/atom-bomb.jpg);">
+<div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+    <nav id="bumpsNav" class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><a href="/">[bs]</a></li>
+                <li><a href="/saved"><span uk-icon="bookmark"></span>&nbsp;saved articles</a></li>
+            </ul>
+        </div>
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <li><a href="/scrape"><span uk-icon="pull"></span>&nbsp;get new articles</a></li>
+            </ul>
+        </div>
+    </nav>
 </div>
+{{!-- hero --}}
+
+<div class="uk-background-blend-screen uk-background-top-center uk-background-fixed uk-height-large" style="background-image: url(assets/images/atom-bomb.jpg);">
+</div>
+
 {{!-- begin articles --}}
 <div class="uk-container">
-    <h1 class="uk-heading-line"><span>articles</span></h1>
+    <h1 id="articlesHeading" class="uk-heading-line"><span><span uk-icon="album"></span>&nbsp;articles</span></h1>
 
     <div id="scrape-results"></div>
     
-    {{!-- <section class="section">
-        <div class="container">
-            <div id="scrape-results"></div>
-        </div>
-    </section> --}}
 
 
 

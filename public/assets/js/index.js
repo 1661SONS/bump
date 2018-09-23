@@ -14,16 +14,16 @@ $(document).ready(function() {
 
             var link = "https://theoutline.com" + data[i].link;
 
-            $("#scrape-results").append(`<div class="uk-dark uk-padding">
+            $("#scrape-results").append(`<div id="articleDiv" class="uk-dark uk-padding">
 
             <h3>`+data[i].title+`</h3>
             
             <button data-id='` + data[i]._id + 
-            `' type="submit" class="save-article uk-button uk-button-default"><span uk-icon="bookmark"></span>&nbsp;save article</button>
+            `' type="submit" class="save-article uk-button uk-button-default"><span uk-icon="bookmark"></span>&nbsp;save article</button>&nbsp;&nbsp;
 
-            <a target="_blank" href=`+link+`>read on outline</a>
+            <a target="_blank" href=`+link+`><button class="read-article uk-button uk-button-default">read article&nbsp;<span uk-icon="arrow-right"></span></button></a>
             
-            </div>`);
+            </div><br>`);
 
         }
 	});
