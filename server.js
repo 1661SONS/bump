@@ -46,7 +46,14 @@ app.use("/", bumpRouter);
 // connect to the mongo db, (localhost db = "bumpdb", mlab db = "heroku_x71xqjgg")
 mongoose.Promise = Promise;
 
-mongoose.connect("mongodb://<1661sons>:<password1>@ds261072.mlab.com:61072/heroku_x71xqjgg", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost:27017/bumpdb", { useNewUrlParser: true });
+
+if (process.env.MONGODB_URI) {
+	//THIS EXECUTES IF THIS IS IN HEROKU
+	mongoose.connect(process.env.MONGODB_URI);
+} else {
+	mongoose.connect("mongodb://localhost/bumpdb", { useNewUrlParser: true });
+}
 
 db.on("error", function(error) {
     console.log("mongoose error: ", error)
