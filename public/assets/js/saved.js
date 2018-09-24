@@ -14,7 +14,7 @@ $(document).ready(function() {
             // display saved article cards on the page
             $("#saved-results").append(`<div id="savedCard" class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
 
-                <div class="uk-flex-last@s uk-card-media-left uk-cover-container">
+                <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
                     <img src="`+data[i].image+`" alt="article image" uk-cover>
                     <canvas width="300" height="200"></canvas>
                 </div>
@@ -45,29 +45,29 @@ $(document).ready(function() {
 	    url: "/articles/" + articleID
 	  }).done(function(data) {
 	  	// update modal header
-	  	$("#comments-header").html("article comments (ID: " + data._id + ")");
+	  	$(".uk-modal-title").html(data.title);
 	  	// if the article has comments
 	  	if (data.comments.length !== 0) {
 	  		// clear comment div
 	  		$("#attachedComments").empty();
 	  		for (i = 0; i < data.comments.length; i++) {
 	  			// append all article comments
-                $("#attachedComments").append("<div class='comment-div'><p class='comment'>" + data.comments[i].body + "</p></div>");
+                $("#attachedComments").append("<div class='userComments'><p class='comment'>" + data.comments[i].body + "</p></div>");
 	  		}
 	  	}
 	  	// Append save comment button with article's ID saved as data-id attribute
-	  	$("footer.modal-card-foot").html("<button id='save-comment' class='button is-success' data-id='" + data._id + "'>Save Comment</button>")
+	  	$(".uk-modal-footer").html(`<button id="saveComment" class="uk-button uk-button-default viewComments" data-id="`+data._id+`"><span uk-icon="check"></span>&nbsp;save comment</button>`)
 	  });
 	});
 
 	// Modal X button closes modal and removes comments
 	$(document).on("click", ".delete", function() {
 		$(".commentsModal").toggleClass("is-active");
-		$("#attachedComments").html("<p>Write the first comment for this article.</p>");
+		$("#attachedComments").empty();
 	});
 
 	// Saving Comments
-	$(document).on("click", "#save-comment", function() {
+	$(document).on("click", "#saveComment", function() {
 	  // Grab the id associated with the article from the submit button
 	  var articleID = $(this).attr("data-id");
 	  // Run a POST request to add a comment, using what's entered in the inputs
@@ -76,7 +76,7 @@ $(document).ready(function() {
 	    url: "/comment/" + articleID,
 	    data: {
 	      // Value taken from body input
-	      body: $("#new-comment-field").val()
+	      body: $("#commentField").val()
 	    }
 	  }).done(function(data) {
       // Log the response
@@ -84,7 +84,7 @@ $(document).ready(function() {
 		});
 
 	  // Also, remove the values entered in the inputs for comment entry
-	  $("#new-comment-field").val("");
+	  $("#commentField").val("");
 	  // Close comment modal
 	  $(".commentsModal").toggleClass("is-active");
 	});

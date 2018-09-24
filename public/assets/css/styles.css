@@ -69,11 +69,8 @@ button, .viewComments {
 #savedNav {
     background-color: #f6cce5;
 }
-#savedNav > div.uk-navbar-left > ul > li.uk-active > a {
-    color: #9CC9F9;
-}
-#savedNav > div.uk-navbar-left > ul > li.uk-active > a {
-    color: #D13EBE;
+#savedNav > div.uk-navbar-left > ul > li > a {
+    color: #4297EE;
 }
 #savedArticlesHeading {
     color: #efa1ce;
@@ -96,6 +93,16 @@ button, .viewComments {
 }
 #savedFooter a {
     color: #efa1ce;
+}
+
+/* comment modal **********************************************************************************/
+.comment {
+    color: #D13EBE;
+    border-bottom: 1px solid #efa1ce;
+}
+#commentField {
+    border: 2px solid #9CC9F9;
+    border-radius: 10px;
 }
 
 /* media queries ******************************************************************************/

@@ -22,22 +22,19 @@
     <div id="saved-results"></div>
     <a class="savedTops" href="#tops"><span uk-icon="arrow-up"></span>&nbsp;back top</a>
 
-
     {{!-- begin comments modal --}}
-    <a class="uk-button uk-button-default" href="#commentsTrigger" uk-toggle>Open</a>
-
     <div id="commentsTrigger" class="commentsModal" uk-modal>
     <div class="uk-modal-dialog">
-        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <button class="delete uk-modal-close-default" type="button" uk-close></button>
         <div class="uk-modal-header">
-            <h2 class="uk-modal-title">/////</h2>
+            <h2 class="uk-modal-title"></h2>
         </div>
         <div class="uk-modal-body">
             <div id="attachedComments"></div>
             <form>
                 <fieldset class="uk-fieldset">
                     <div class="uk-margin">
-                        <textarea class="uk-textarea" rows="5" placeholder="add your 2¢"></textarea>
+                        <textarea id="commentField" class="uk-textarea" rows="5" placeholder="add your 2¢"></textarea>
                     </div>
                 </fieldset>
             </form>
