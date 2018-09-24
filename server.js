@@ -43,10 +43,10 @@ var htmlRouter = require("./controllers/html-routes.js");
 app.use("/", htmlRouter);
 app.use("/", bumpRouter);
 
-// connect to the mongo db, "bumpdb"
+// connect to the mongo db, (localhost db = "bumpdb", mlab db = "heroku_x71xqjgg")
 mongoose.Promise = Promise;
 
-mongoose.connect("mongodb://localhost/bumpdb", { useNewUrlParser: true });
+mongoose.connect("mongodb://<1661sons>:<password1>@ds261072.mlab.com:61072/heroku_x71xqjgg", { useNewUrlParser: true });
 
 db.on("error", function(error) {
     console.log("mongoose error: ", error)
