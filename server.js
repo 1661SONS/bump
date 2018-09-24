@@ -46,7 +46,7 @@ app.use("/", bumpRouter);
 // connect to the mongo db, "bumpdb"
 mongoose.Promise = Promise;
 
-mongoose.connect("mongodb://<1661sons>:<password1>@ds261072.mlab.com:61072/heroku_x71xqjgg", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/bumpdb", { useNewUrlParser: true });
 
 db.on("error", function(error) {
     console.log("mongoose error: ", error)

@@ -123,7 +123,9 @@ router.post("/unsave/:id", function(req, res) {
       console.log(err);
     }
     else {
-      console.log("saved article removed");
+      console.log("\n---------------------");  
+      console.log("saved article removed".magenta);
+      console.log("\n---------------------");
     }
   });
   res.redirect("/saved");

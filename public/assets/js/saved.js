@@ -2,26 +2,41 @@ $(document).ready(function() {
 
 	// render saved articles on page load
 	$.getJSON("/articles", function(data) {
-        console.log("saved article:" + "\n--------------------\n" + data);
+        console.log("\n--------------------");
+        console.log("SAVED ARTICLE:".green);
+        console.log("--------------------");
 
 	  for (var i = 0; i < data.length; i++) {
-	  	// if article has been marked as saved
+          
+        // if article has been marked as saved
 	  	if (data[i].saved === true) {
-            // Display the information on the page
-            $("#saved-results").append("<div class='saved-div'><p class='saved-text'>" + 
-            data[i].title + 
-            "<br>" + 
-            "https://theoutline.com" + data[i].link +
-            "</p><a class='unsave-button button is-danger is-medium' data-id='" +
-            data[i]._id + 
-            "'>Remove</a><a class='comments-button button is-info is-medium' data-id='" + data[i]._id +
-            "'><span class='icon'><i class='fa fa-comments'></i></span>Comments</a></div>");
+           
+            // display saved article cards on the page
+            $("#saved-results").append(`<div id="savedCard" class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+
+                <div class="uk-flex-last@s uk-card-media-left uk-cover-container">
+                    <img src="`+data[i].image+`" alt="article image" uk-cover>
+                    <canvas width="300" height="200"></canvas>
+                </div>
+
+                <div>
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title">`+data[i].title+`</h3>
+                        <button data-id='`+data[i]._id+ 
+                    `' type="submit" class="commentButton uk-button uk-button-default"><span uk-icon="commenting"></span>&nbsp;comment</button>&nbsp;&nbsp;
+
+                    <a><button data-id=`+data[i]._id+` class="removeButton uk-button uk-button-default"><span uk-icon="trash"></span>&nbsp;remove</button></a>
+                    </div>
+                </div>
+            </div>`);
           }
-          // else, display "no saved articles"
 	  }
 	});
 
-	// Comment button opens the comments modal & displays any comments
+    // Comment button opens the comments modal & displays any comments
+    
+    // should be .commentButton
+    
 	$(document).on("click", ".comments-button", function() {
 		// Open the comments modal
 		$(".modal").toggleClass("is-active");
@@ -83,7 +98,7 @@ $(document).ready(function() {
 	});
 
 	// Removing Saved Articles
-	$(document).on("click", ".unsave-button", function() {
+	$(document).on("click", ".removeButton", function() {
 		// Get article id
 		var articleID = $(this).attr("data-id");
 		console.log(articleID);

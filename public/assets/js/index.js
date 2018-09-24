@@ -7,7 +7,7 @@ $(document).ready(function() {
 
             var link = "https://theoutline.com" + data[i].link;
 
-            $("#scrape-results").append(`<div id="articleCard" class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+            $("#scrape-results").append(`<div id="homeCard" class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
 
                 <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
                     <img src="`+data[i].image+`" alt="article image" uk-cover>
@@ -18,9 +18,9 @@ $(document).ready(function() {
                     <div class="uk-card-body">
                         <h3 class="uk-card-title">`+data[i].title+`</h3>
                         <button data-id='` + data[i]._id + 
-                    `' type="submit" class="save-article uk-button uk-button-default"><span uk-icon="bookmark"></span>&nbsp;save article</button>&nbsp;&nbsp;
+                    `' type="submit" class="saveButton uk-button uk-button-default"><span uk-icon="bookmark"></span>&nbsp;save article</button>&nbsp;&nbsp;
 
-                    <a target="_blank" href=`+link+`><button class="read-article uk-button uk-button-default">read article&nbsp;<span uk-icon="arrow-right"></span></button></a>
+                    <a target="_blank" href=`+link+`><button class="readButton uk-button uk-button-default">read article&nbsp;<span uk-icon="arrow-right"></span></button></a>
                     </div>
                 </div>
             </div>`);
@@ -29,10 +29,10 @@ $(document).ready(function() {
 	});
 
 	// save article button changes the "saved" article model from false to true
-	$(document).on("click", ".save-article", function() {
+	$(document).on("click", ".saveButton", function() {
         
         // change icon to check mark
-		// $(this).children("span.icon").children("i.fa-bookmark").removeClass("fa-bookmark").addClass("fa-check-circle");
+		$(this).html(`<span uk-icon="check"></span>&nbsp;saved`);
         
         // get article id
 		var articleID = $(this).attr("data-id");

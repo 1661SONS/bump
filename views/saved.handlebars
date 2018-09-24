@@ -1,4 +1,5 @@
 <title>[bumps] - saved articles</title>
+
 {{!-- header nav --}}
 <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
     <nav id="savedNav" class="uk-navbar-container" uk-navbar>
@@ -15,18 +16,20 @@
         </div>
     </nav>
 </div>
+
 {{!-- hero --}}
-<div class="uk-background-blend-screen uk-background-top-center uk-background-fixed uk-height-large" style="background-image: url(assets/images/atom-bomb.jpg);">
+<div id="tops" class="uk-background-blend-screen uk-background-primary uk-background-top-center uk-background-fixed uk-height-large" style="background-image: url(assets/images/atom-bomb.jpg);">
 </div>
+
 {{!-- begin saved articles --}}
 <div class="uk-container">
     <h1 id="savedArticlesHeading" class="uk-heading-line"><span><span uk-icon="bookmark"></span>&nbsp;saved articles</span></h1>
 
-    <section class="section">
-        <div class="container"></div>
-            <div id="saved-results"></div>
-        </div>
-    </section>
+    <div id="saved-results"></div>
+
+    <a class="savedTops" href="#tops"><span uk-icon="arrow-up"></span>&nbsp;back top</a>
+
+
 
 
 
@@ -38,5 +41,14 @@
 
 
 </div> {{!-- close container --}}
+
+<hr>
+
+{{!-- footer --}}
+<nav id="savedFooter" class="uk-navbar-container" uk-navbar>
+    <div class="uk-navbar-center">
+        &copy; 2018 Julia Christian || original articles by&nbsp;<a target="_blank" href="https://theoutline.com/">The Outline</a>
+    </div>
+</nav>
 
 <script src="/assets/js/saved.js"></script>

@@ -2,72 +2,105 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #f9f9f9;
 }
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .homeTops, .savedTops {
     font-family: 'Inconsolata', monospace;
 }
-/* .uk-container {
-    background-color: #0f0b27;
-} */
+.homeTops, .savedTops {
+    color: #051136;
+    font-weight: 700;
+}
+button {
+    border-radius: 5px;
+    color: #051136;
+}
+#homeFooter, #savedFooter {
+    padding: 30px 0 30px 0;
+    color: #c6c6c6;
+}
+
 /* home *************************************************************************************/
-#bumpsNav {
-    background-color: #121225;
+#homeNav {
+    background-color: #051136;
 }
 .uk-navbar-nav > li > a {
     text-transform: lowercase;
-    color: #FABF40;
+    color: #F7C45E;
     font-family: 'Inconsolata', monospace;
     font-weight: 700;
     font-size: 18px;
 }
 .uk-navbar-nav > li > a:hover {
-    color: #C3C4DF;
-    /* text-decoration: underline; */
+    color: #9CC9F9;
 }
-#bumpsNav > div.uk-navbar-left > ul > li.uk-active > a {
-    color: #C3C4DF;
+#homeNav > div.uk-navbar-left > ul > li.uk-active > a {
+    color: #9CC9F9;
 }
 .uk-heading-line {
     padding-top: 60px;
 }
 #articlesHeading {
-    color: #FABF40;
+    color: #F7C45E;
     font-weight: 700;
 }
-#articleCard {
-    border: solid 1px #FABF40;
-    border-radius: 10px;
+#homeCard {
+    border: solid 1px #F7C45E;
 }
-button.save-article, button.read-article {
-    border-radius: 5px;
+.saveButton:hover, .readButton:hover {
+    border-color: #051136;
+    background-color: #F7C45E;
 }
-button.save-article:hover, button.read-article:hover {
-    border-color: #121225;
-    background-color: #FABF40;
-}
-button.save-article {
-    border-color: #FABF40;
-    color: #121225;
-}
-button.read-article {
+.saveButton {
+    border-color: #F7C45E;
     background-color: #f9f9f9;
+}
+.readButton {
     border-color: #e5e5e5;
+    background-color: white;
+}
+.homeTops:hover {
+    text-decoration: none;
+    color: #F7C45E;
+}
+#homeFooter a {
+    color: #F7C45E;
 }
 
 /* saved **********************************************************************************/
 #savedNav {
-    background-color: #A9FFFE;
+    background-color: #f6cce5;
+}
+#savedNav > div.uk-navbar-left > ul > li.uk-active > a {
+    color: #9CC9F9;
 }
 #savedNav > div.uk-navbar-left > ul > li.uk-active > a {
     color: #D13EBE;
 }
 #savedArticlesHeading {
-    color: black;
+    color: #efa1ce;
     font-weight: 700;
+}
+.savedTops:hover {
+    color: #efa1ce;
+    text-decoration: none;
+}
+#savedCard {
+    border: solid 1px #efa1ce; 
+}
+.commentButton {
+    border-color: #efa1ce;
+    background-color: #f9f9f9;
+}
+.commentButton:hover, .removeButton:hover {
+    background-color: #f6cce5;
+    border-color: #051136;
+}
+#savedFooter a {
+    color: #efa1ce;
 }
 
 /* media queries ******************************************************************************/
 @media only screen and (max-width: 930px) {
-    button.save-article {
+    .saveButton, .commentButton {
         margin-bottom: 15px;
     }
 }
