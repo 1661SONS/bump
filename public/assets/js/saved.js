@@ -22,8 +22,8 @@ $(document).ready(function() {
                 <div>
                     <div class="uk-card-body">
                         <h3 class="uk-card-title">`+data[i].title+`</h3>
-                        <button data-id='`+data[i]._id+ 
-                    `' type="submit" class="commentButton uk-button uk-button-default"><span uk-icon="commenting"></span>&nbsp;comment</button>&nbsp;&nbsp;
+
+                        <a data-id="`+data[i]._id+`" class="viewComments uk-button uk-button-default" href="#commentsTrigger" uk-toggle><span uk-icon="commenting"></span>&nbsp;comments</a>&nbsp;&nbsp;
 
                     <a><button data-id=`+data[i]._id+` class="removeButton uk-button uk-button-default"><span uk-icon="trash"></span>&nbsp;remove</button></a>
                     </div>
@@ -33,29 +33,26 @@ $(document).ready(function() {
 	  }
 	});
 
-    // Comment button opens the comments modal & displays any comments
-    
-    // should be .commentButton
-    
-	$(document).on("click", ".comments-button", function() {
-		// Open the comments modal
-		$(".modal").toggleClass("is-active");
-		// Get article by article ID
+    // comment button opens the comments modal & displays any comments
+	$(document).on("click", ".viewComments", function() {
+		// trigger comments modal
+		$(".commentsModal").toggleClass("is-active");
+		// get article by ID
 		var articleID = $(this).attr("data-id");
-		// Now make an ajax call for the Article
+		// make ajax call for article
 	  $.ajax({
 	    method: "GET",
 	    url: "/articles/" + articleID
 	  }).done(function(data) {
-	  	// Update modal header
-	  	$("#comments-header").html("Article Comments (ID: " + data._id + ")");
-	  	// If the article has comments
+	  	// update modal header
+	  	$("#comments-header").html("article comments (ID: " + data._id + ")");
+	  	// if the article has comments
 	  	if (data.comments.length !== 0) {
-	  		// Clear out the comment div
-	  		$("#comments-list").empty();
+	  		// clear comment div
+	  		$("#attachedComments").empty();
 	  		for (i = 0; i < data.comments.length; i++) {
-	  			// Append all article comments
-					$("#comments-list").append("<div class='comment-div'><p class='comment'>" + data.comments[i].body + "</p></div>");
+	  			// append all article comments
+                $("#attachedComments").append("<div class='comment-div'><p class='comment'>" + data.comments[i].body + "</p></div>");
 	  		}
 	  	}
 	  	// Append save comment button with article's ID saved as data-id attribute
@@ -65,8 +62,8 @@ $(document).ready(function() {
 
 	// Modal X button closes modal and removes comments
 	$(document).on("click", ".delete", function() {
-		$(".modal").toggleClass("is-active");
-		$("#comments-list").html("<p>Write the first comment for this article.</p>");
+		$(".commentsModal").toggleClass("is-active");
+		$("#attachedComments").html("<p>Write the first comment for this article.</p>");
 	});
 
 	// Saving Comments
@@ -89,7 +86,7 @@ $(document).ready(function() {
 	  // Also, remove the values entered in the inputs for comment entry
 	  $("#new-comment-field").val("");
 	  // Close comment modal
-	  $(".modal").toggleClass("is-active");
+	  $(".commentsModal").toggleClass("is-active");
 	});
 
 	// Deleting Comments

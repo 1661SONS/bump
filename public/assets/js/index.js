@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
-	// grab articles as json when page loads, then append to page
+    // grab articles as json when page loads, then append to page
+    // would be nice if this also got rid of existing articles so the user would always get fresh ones - not duplicates
 	$.getJSON("/articles", function(data) {
 
         for (var i = 0; i < data.length; i++) {
@@ -26,7 +27,18 @@ $(document).ready(function() {
             </div>`);
 
         }
-	});
+
+    });
+    
+    // when redirect finishes, play Atom Bomb song from [adult swim]
+    var obj = document.createElement("audio");
+        obj.src = "/assets/sounds/atomBomb.mp3";
+        obj.volume = 0.15;
+        obj.autoPlay = false;
+        obj.preLoad = true;
+        obj.controls = true;
+
+        obj.play();
 
 	// save article button changes the "saved" article model from false to true
 	$(document).on("click", ".saveButton", function() {
@@ -50,4 +62,5 @@ $(document).ready(function() {
       console.log("data: ", data);
 		});
 	});
+
 });

@@ -9,7 +9,9 @@ var router = express.Router();
 // homepage route /////////////////////////////////////////////////////////////////////////
 
 // scrape data from The Outline site and save to mongodb
+// would be nice if this also removed current scraped/outdated articles
 router.get("/scrape", function(req, res) {
+
   // requesting the body of the html
   request("https://theoutline.com/", function(error, response, html) {
     // loading the result into cheerio and saving it as $ shorthand
@@ -41,9 +43,10 @@ router.get("/scrape", function(req, res) {
       });
 
     });
+
     // reload to display newly scraped articles
     res.redirect("/");
-  });  
+  }); 
 });
 
 // getting scraped articles from mongodb
@@ -123,9 +126,9 @@ router.post("/unsave/:id", function(req, res) {
       console.log(err);
     }
     else {
-      console.log("\n---------------------");  
-      console.log("saved article removed".magenta);
-      console.log("\n---------------------");
+      console.log("\n-----------------------");  
+      console.log("SAVED ARTICLE REMOVED".magenta);
+      console.log("-----------------------");
     }
   });
   res.redirect("/saved");

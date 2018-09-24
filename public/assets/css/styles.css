@@ -9,7 +9,7 @@ h1, h2, h3, h4, h5, h6, .homeTops, .savedTops {
     color: #051136;
     font-weight: 700;
 }
-button {
+button, .viewComments {
     border-radius: 5px;
     color: #051136;
 }
@@ -86,11 +86,11 @@ button {
 #savedCard {
     border: solid 1px #efa1ce; 
 }
-.commentButton {
+.viewComments {
     border-color: #efa1ce;
     background-color: #f9f9f9;
 }
-.commentButton:hover, .removeButton:hover {
+.viewComments:hover, .removeButton:hover {
     background-color: #f6cce5;
     border-color: #051136;
 }
@@ -100,7 +100,7 @@ button {
 
 /* media queries ******************************************************************************/
 @media only screen and (max-width: 930px) {
-    .saveButton, .commentButton {
+    .saveButton, .viewComments {
         margin-bottom: 15px;
     }
 }
