@@ -17,7 +17,7 @@ click the thumbnail below to watch the **bump** demo on YouTube:
 
 ---
 
-### scrape some bumps
+### scrape some bumps yourself
 
 **bump** is [live on Heroku](http://bumps.herokuapp.com/)
 
